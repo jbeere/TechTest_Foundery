@@ -13,7 +13,7 @@ public class MarsRoverRunner {
 
     private static final Pattern BOUNDS_PATTERN = Pattern.compile("^(\\d+)\\s+(\\d+)$"); // e.g. "5 5"
     private static final Pattern ROVER_PATTERN = Pattern.compile("^(\\d+)\\s+(\\d+)\\s+([NESW])$"); // e.g. "1 2 N"
-    private static final Pattern COMMAND_PATTERN = Pattern.compile("^[LRM]+$"); // e.g. "LMLMLMLMM"
+    private static final Pattern COMMAND_PATTERN = Pattern.compile("^[LRM]*$"); // e.g. "LMLMLMLMM"
 
     // command map for easy lookup from the command string of characters, commands are immutable and reusable
     private static final Map<Integer, Command> COMMAND_MAP = ImmutableMap.<Integer, Command>builder()
