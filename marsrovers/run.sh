@@ -1,0 +1,1 @@
+java -jar target/marsrovers-1.0-SNAPSHOT.jar -f $1
