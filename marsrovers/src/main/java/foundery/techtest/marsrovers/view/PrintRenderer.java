@@ -1,6 +1,7 @@
 package foundery.techtest.marsrovers.view;
 
 import foundery.techtest.marsrovers.model.Coordinate;
+import foundery.techtest.marsrovers.model.MarsModel;
 import foundery.techtest.marsrovers.model.MarsRover;
 import foundery.techtest.marsrovers.model.Orientation;
 
@@ -21,10 +22,12 @@ public class PrintRenderer implements Renderer {
     }
 
     @Override
-    public void render(MarsRover rover) {
-        Coordinate coordinate = rover.getCoordinate();
-        Orientation orientation = rover.getOrientation();
-        out.printf("%d %d %s%n", coordinate.getX(), coordinate.getY(), orientation.name());
+    public void render(MarsModel model) {
+        for (MarsRover rover : model.getRovers()) {
+            Coordinate coordinate = rover.getCoordinate();
+            Orientation orientation = rover.getOrientation();
+            out.printf("%d %d %s%n", coordinate.getX(), coordinate.getY(), orientation.name());
+        }
         out.flush();
     }
 }

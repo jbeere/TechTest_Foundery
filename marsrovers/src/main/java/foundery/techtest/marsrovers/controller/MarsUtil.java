@@ -17,7 +17,7 @@ import static foundery.techtest.marsrovers.model.Direction.RIGHT;
 import static java.lang.Integer.parseInt;
 import static java.lang.String.format;
 
-public class MarsRoverUtil {
+public class MarsUtil {
 
     private static final Pattern BOUNDS_PATTERN = Pattern.compile("^(\\d+)\\s+(\\d+)$"); // e.g. "5 5"
     private static final Pattern ROVER_PATTERN = Pattern.compile("^(\\d+)\\s+(\\d+)\\s+([NESW])$"); // e.g. "1 2 N"
@@ -55,7 +55,7 @@ public class MarsRoverUtil {
         }
     }
 
-    public static void executeCommandString(MarsRover rover, String commandString) {
+    public static void executeCommandString(MarsRover rover, String commandString, int wait) {
         Matcher matcher = COMMAND_PATTERN.matcher(commandString);
         if (matcher.matches()) {
             // stream through the characters in the command string
@@ -63,9 +63,22 @@ public class MarsRoverUtil {
                     // lookup the matching command in the command map
                     .mapToObj(COMMAND_MAP::get)
                     // tell the rover to execute the command
-                    .forEach(c -> c.apply(rover));
+                    .forEach(c -> {
+                        c.apply(rover);
+                        sleep(wait);
+                    });
         } else {
             throw new IllegalArgumentException(format("invalid command input: '%s'", commandString));
+        }
+    }
+
+    private static void sleep(long millis) {
+        if (millis > 0) {
+            try {
+                Thread.sleep(millis);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
         }
     }
 }

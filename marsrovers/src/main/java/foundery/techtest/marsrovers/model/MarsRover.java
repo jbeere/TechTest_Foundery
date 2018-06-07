@@ -1,7 +1,8 @@
 package foundery.techtest.marsrovers.model;
 
-// the rover has coordinates
-public class MarsRover {
+import java.util.Observable;
+
+public class MarsRover extends Observable {
 
     private Coordinate coordinate;
     private Orientation orientation;
@@ -17,6 +18,8 @@ public class MarsRover {
 
     public void setCoordinate(Coordinate coordinate) {
         this.coordinate = coordinate;
+        this.setChanged();
+        this.notifyObservers(coordinate);
     }
 
     public Orientation getOrientation() {
@@ -25,6 +28,8 @@ public class MarsRover {
 
     public void setOrientation(Orientation orientation) {
         this.orientation = orientation;
+        this.setChanged();
+        this.notifyObservers(orientation);
     }
 
 }
