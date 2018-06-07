@@ -1,4 +1,4 @@
-package foundery.techtest.marsrovers;
+package foundery.techtest.marsrovers.model;
 
 // each orientation is aware of it's effect on a coordinate and in which direction other orientations are
 public enum Orientation {

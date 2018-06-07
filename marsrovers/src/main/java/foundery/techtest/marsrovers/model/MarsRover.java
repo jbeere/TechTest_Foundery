@@ -1,6 +1,6 @@
-package foundery.techtest.marsrovers;
+package foundery.techtest.marsrovers.model;
 
-// the rover has coordinates, orientation and can execute commands on itself
+// the rover has coordinates
 public class MarsRover {
 
     private Coordinate coordinate;
@@ -27,7 +27,4 @@ public class MarsRover {
         this.orientation = orientation;
     }
 
-    public void execute(Command command) {
-        command.apply(this);
-    }
 }

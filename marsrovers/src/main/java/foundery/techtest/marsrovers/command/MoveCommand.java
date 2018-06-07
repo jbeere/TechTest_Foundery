@@ -1,4 +1,8 @@
-package foundery.techtest.marsrovers;
+package foundery.techtest.marsrovers.command;
+
+import foundery.techtest.marsrovers.model.Coordinate;
+import foundery.techtest.marsrovers.model.MarsRover;
+import foundery.techtest.marsrovers.model.Orientation;
 
 public class MoveCommand implements Command {
 

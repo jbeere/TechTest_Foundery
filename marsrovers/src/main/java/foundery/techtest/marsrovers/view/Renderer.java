@@ -1,4 +1,6 @@
-package foundery.techtest.marsrovers;
+package foundery.techtest.marsrovers.view;
+
+import foundery.techtest.marsrovers.model.MarsRover;
 
 public interface Renderer {
 

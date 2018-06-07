@@ -1,10 +1,13 @@
 package foundery.techtest.marsrovers;
 
+import foundery.techtest.marsrovers.model.Coordinate;
+import foundery.techtest.marsrovers.model.Orientation;
 import org.junit.Test;
 
-import static foundery.techtest.marsrovers.Direction.*;
-import static foundery.techtest.marsrovers.Orientation.*;
-import static org.junit.Assert.*;
+import static foundery.techtest.marsrovers.model.Direction.LEFT;
+import static foundery.techtest.marsrovers.model.Direction.RIGHT;
+import static foundery.techtest.marsrovers.model.Orientation.*;
+import static org.junit.Assert.assertEquals;
 
 public class OrientationTest {
 
@@ -22,13 +25,13 @@ public class OrientationTest {
 
     @Test
     public void testOrientationMove() {
-        check(N, 0, 0, 0, 1);
-        check(E, 0, 0, 1, 0);
-        check(S, 0, 0, 0, -1);
-        check(W, 0, 0, -1, 0);
+        checkMove(N, 0, 0, 0, 1);
+        checkMove(E, 0, 0, 1, 0);
+        checkMove(S, 0, 0, 0, -1);
+        checkMove(W, 0, 0, -1, 0);
     }
 
-    private static void check(Orientation orientation, int x0, int y0, int x1, int y1) {
+    private static void checkMove(Orientation orientation, int x0, int y0, int x1, int y1) {
         Coordinate before = new Coordinate(x0, y0);
         Coordinate after = orientation.move(before);
         assertEquals(x1, after.getX());

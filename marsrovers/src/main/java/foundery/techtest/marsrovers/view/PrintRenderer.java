@@ -1,11 +1,20 @@
-package foundery.techtest.marsrovers;
+package foundery.techtest.marsrovers.view;
 
+import foundery.techtest.marsrovers.model.Coordinate;
+import foundery.techtest.marsrovers.model.MarsRover;
+import foundery.techtest.marsrovers.model.Orientation;
+
+import java.io.PrintStream;
 import java.io.PrintWriter;
 
 // a renderer that can print a rover in text format
 public class PrintRenderer implements Renderer {
 
     private final PrintWriter out;
+
+    public PrintRenderer(PrintStream out) {
+        this(new PrintWriter(out));
+    }
 
     public PrintRenderer(PrintWriter out) {
         this.out = out;

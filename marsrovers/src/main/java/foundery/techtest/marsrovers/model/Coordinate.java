@@ -1,4 +1,4 @@
-package foundery.techtest.marsrovers;
+package foundery.techtest.marsrovers.model;
 
 // immutable x and y coords in 2 dimensional space
 public class Coordinate {
@@ -16,10 +16,5 @@ public class Coordinate {
 
     public int getY() {
         return y;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("(%d,%d)", x, y);
     }
 }
